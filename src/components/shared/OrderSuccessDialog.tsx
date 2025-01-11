@@ -15,11 +15,11 @@ interface OrderSuccessDialog {
 
 export function OrderSuccessDialog({ order, onClose }: OrderSuccessDialog) {
 
+    const [isOpen, setIsOpen] = useState(true)
+
     if (!order) {
         return null; // Don’t render the dialog if `order` is undefined
     }
-
-    const [isOpen, setIsOpen] = useState(true)
 
     const handleClose = () => {
         setIsOpen(false)
