@@ -51,6 +51,8 @@ export default function Cart() {
     setSuccessOverlay(false);
   }
 
+  const [checkoutInProcess, setCheckoutInProcess] = useState<boolean>(false);
+
   const cartProducts = cartContext?.cartProducts || [];
 
   useEffect(() => {
@@ -91,6 +93,8 @@ export default function Cart() {
     event.preventDefault();
     // console.log(formData);
 
+    setCheckoutInProcess(true);
+
     try {
       const response = await axios.post('/api/checkout', formData);
       const data = response.data;
@@ -105,6 +109,8 @@ export default function Cart() {
     } catch (error: unknown) {
       setError('Some error occured while checkout.');
       console.log('Some error occured while checkout. ', error);
+    } finally {
+      setCheckoutInProcess(false);
     }
 
 
@@ -295,7 +301,7 @@ export default function Cart() {
                       />
                     </div>
 
-                    <Button type="submit" className="w-full mt-3">Continue Payment</Button>
+                    <Button type="submit" className="w-full mt-3" disabled={checkoutInProcess}>{checkoutInProcess ? "Processing Order..." : "Continue Payment"}</Button>
                   </form>
                 </CardContent>
               </Card>
