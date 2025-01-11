@@ -1,5 +1,5 @@
 import { Category as CategoryType } from '@/types';
-import mongoose, { model, models, Schema, Document, Model } from 'mongoose';
+import mongoose, { model, models, Schema, Model } from 'mongoose';
 
 
 // Create the schema for Category

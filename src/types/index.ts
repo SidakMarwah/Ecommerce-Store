@@ -7,7 +7,7 @@ export type Product = {
     price: string;
     images: string[];
     category: Types.ObjectId | Category; // It can either be an ObjectId or a populated Category object
-    properties?: Record<string, any>;
+    properties?: Record<string, string>;
     createdAt?: Date;
     updatedAt?: Date;
 };
@@ -21,7 +21,7 @@ export type Category = {
     _id?: string;
     name: string;
     parent?: Types.ObjectId | Category; // Parent category ID as a string
-    properties?: Record<string, any>[]; // Array of properties
+    properties?: object[]; // Array of properties
     createdAt?: Date;
     updatedAt?: Date;
 };
