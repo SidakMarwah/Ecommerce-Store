@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { connectToDB } from "@/lib/db/database";
 import Product from "@/lib/models/Product.model";
 import { NextResponse as NextResponseType } from "next/server";
-import { Types } from "mongoose";
+// import { Types } from "mongoose";
 import Order from "@/lib/models/Order.model";
 
 export async function POST(request: Request): Promise<NextResponseType> {
@@ -15,14 +15,14 @@ export async function POST(request: Request): Promise<NextResponseType> {
 
         // console.log({ name, email, address, city, postalCode, country, phone, products });
 
-        const productIds: String[] = products;
+        const productIds: string[] = products;
 
         const uniqueIds = [...new Set(productIds)];
         const productsInfos = await Product.find({ _id: uniqueIds });
 
         let totalAmount = 0;
 
-        let itemsOrdered = [];
+        const itemsOrdered = [];
         for (const productId of uniqueIds) {
             const productInfo = productsInfos.find(p => p._id.toString() === productId);
             const quantity = productIds.filter(id => id === productId).length || 0;

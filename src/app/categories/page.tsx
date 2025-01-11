@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Category as CategoryType } from '@/types';
-import Link from 'next/link'; // Ensure you import Link from Next.js
+// import Link from 'next/link'; // Ensure you import Link from Next.js
 import CategoryGrid from '@/components/shared/CategoryGrid';
 
 const Categories: React.FC = () => {
@@ -20,6 +20,7 @@ const Categories: React.FC = () => {
                 setLoading(false);
             } catch (err) {
                 setError('Failed to load categories.');
+                console.log(err);
                 setLoading(false);
             }
         };

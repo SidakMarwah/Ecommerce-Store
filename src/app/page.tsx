@@ -25,6 +25,7 @@ const Home = () => {
         setFeatured(response.data);
         setLoadingForFeatured(false);
       } catch (err) {
+        console.log(err);
         setErrorForFeatured('Failed to load featured products.');
         setLoadingForFeatured(false);
       }
@@ -36,6 +37,7 @@ const Home = () => {
         setProducts(response.data);
         setLoadingForProductGrid(false);
       } catch (err) {
+        console.log(err);
         setErrorForProductGrid('Failed to load products.');
         setLoadingForProductGrid(false);
       }

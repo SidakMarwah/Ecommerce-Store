@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { connectToDB } from "@/lib/db/database";
 import Featured from "@/lib/models/Featured.model";
-import Product from "@/lib/models/Product.model";
+// import Product from "@/lib/models/Product.model";
 import { NextResponse as NextResponseType } from "next/server";
 import { Product as ProductType } from "@/types";
 import { Featured as FeaturedType } from "@/types";

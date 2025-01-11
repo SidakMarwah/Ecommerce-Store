@@ -103,8 +103,8 @@ export default function Cart() {
         setProducts([]);          // Reset the products state
       }
     } catch (error: unknown) {
-      // console.log(error);
-      console.log('Some error occured while checkout.');
+      setError('Some error occured while checkout.');
+      console.log('Some error occured while checkout. ', error);
     }
 
 

@@ -5,10 +5,10 @@ import ErrorPage from "@/components/shared/ErrorPage"
 
 export default function Error({
   error,
-  reset,
+  // reset,
 }: {
   error: Error & { digest?: string }
-  reset: () => void
+  // reset: () => void
 }) {
   return (
     <ErrorPage
